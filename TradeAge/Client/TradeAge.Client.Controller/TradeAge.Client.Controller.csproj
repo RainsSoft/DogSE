@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\UnityClient\Assets\Dll\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\UnityClient\Assets\Dll\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,22 +40,26 @@
   <ItemGroup>
     <Compile Include="Controller\Auto\LogicInterface.cs" />
     <Compile Include="Controller\GameController.cs" />
+    <Compile Include="Controller\Game\GameController.Logic.cs" />
+    <Compile Include="Controller\Game\GameController.Net.cs" />
+    <Compile Include="Controller\Game\GameController.Proxy.cs" />
     <Compile Include="Controller\Login\LoginController.Logic.cs" />
     <Compile Include="Controller\Login\LoginController.Net.cs" />
     <Compile Include="Controller\Login\LoginController.Proxy.cs" />
+    <Compile Include="Controller\PlayerModel.cs" />
     <Compile Include="Controller\Scene\SceneController.Logic.cs" />
     <Compile Include="Controller\Scene\SceneController.Net.cs" />
     <Compile Include="Controller\Scene\SceneController.Proxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DogSE\DogSE.Client.Core\DogSE.Client.Core.csproj">
+      <Project>{c9bbbe58-672b-4fec-b66e-b020966186d0}</Project>
+      <Name>DogSE.Client.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\DogSE\DogSE.Library\DogSE.Library.net35.csproj">
       <Project>{e7fe81a8-ce39-46c1-8eb2-c1f5d0ad130a}</Project>
       <Name>DogSE.Library.net35</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DogSE.Client.Core\DogSE.Client.Core.csproj">
-      <Project>{c9bbbe58-672b-4fec-b66e-b020966186d0}</Project>
-      <Name>DogSE.Client.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\TradeAge.Client.Entity\TradeAge.Client.Entity.csproj">
       <Project>{82f1aff6-2c00-43ef-b923-bc39311c71a1}</Project>

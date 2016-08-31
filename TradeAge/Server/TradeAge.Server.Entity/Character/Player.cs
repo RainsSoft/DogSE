@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Xml.Serialization;
 using DogSE.Common;
+using DogSE.Library.Maths;
 using DogSE.Server.Core.Net;
-using TradeAge.Server.Entity.Common;
+using TradeAge.Server.Entity.Ship;
 
 
 namespace TradeAge.Server.Entity.Character
@@ -9,7 +11,7 @@ namespace TradeAge.Server.Entity.Character
     /// <summary>
     /// 玩家（存储数据）
     /// </summary>
-    public partial class  Player
+    public partial class  Player:IDataEntity
     {
         /// <summary>
         /// 玩家的唯一标示
@@ -43,6 +45,11 @@ namespace TradeAge.Server.Entity.Character
         public DateTime LastLogoffTime { get; set; }
 
         /// <summary>
+        /// 上一次收到的心跳包
+        /// </summary>
+        public DateTime LastHeartbeat { get; set; }
+
+        /// <summary>
         /// 累计的在线时间，在离线时修改
         /// 单位：秒
         /// </summary>
@@ -60,13 +67,36 @@ namespace TradeAge.Server.Entity.Character
         /// <summary>
         /// 方向已经速度
         /// </summary>
-        public Vector3 Direction { get; set; }
+        public Quaternion Rotation { get; set; }
+
+        /// <summary>
+        /// 当前速度
+        /// </summary>
+        [XmlIgnore]
+        public float Speed { get; set; }
+
+        /// <summary>
+        /// 转弯速度
+        /// </summary>
+        [XmlIgnore]
+        public float RotationRate;
+
+        /// <summary>
+        /// 风帆等级
+        /// </summary>
+        [XmlIgnore]
+        public SpeedUpTypes SpeedUpTypes;
 
         /// <summary>
         /// 性别
         /// </summary>
         public Sex Sex { get; set; }
 
+
+        /// <summary>
+        /// 网络对象
+        /// </summary>
+        [XmlIgnore]
         public NetState NetState { get; set; }
     }
 }
